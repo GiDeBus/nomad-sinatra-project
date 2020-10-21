@@ -3,10 +3,11 @@
 </p>
 
 <p>
-  <button onclick="/places/<%=@place.id%>/edit"> Edit Place </button>
+  <button onclick='window.location.href="/places/<%=@place.id%>/edit"'>Edit Place</button>
 </p>
 
 <form action="/places/<%= @place.id %>/delete" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" id="submit" value="Delete Place">
 </form>
+
