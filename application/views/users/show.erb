@@ -1,0 +1,6 @@
+<h1><%= @user.username %>'s places</h1>
+<ul>
+    <% @user.places.each do |place| %>
+        <li><%= place.name %></li>
+    <% end %>
+</ul>

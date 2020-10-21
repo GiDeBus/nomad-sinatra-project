@@ -1,0 +1,6 @@
+<form action="/places/<%= @place.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+    <label for="name">Place:</label>
+    <input type="text" name="name" value="<%= @place.name %>">
+    <input type="submit" value="Submit" id="submit">
+</form>

@@ -1,0 +1,11 @@
+<h1>Welcome, <%= current_user.username %></h1>
+<p>
+    <h3>
+        Here are your travel destinations:
+    </h3>
+</p>
+<ul>
+    <% @places.each do |place| %>
+        <li><%= place.name %></li>
+    <% end %>
+</ul>
