@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class PlacesController < ApplicationController
+    use Rack::Flash
 
     get '/places' do
         if logged_in?
@@ -69,6 +72,9 @@ class PlacesController < ApplicationController
             @place = Place.find_by_id(params[:id])
             if @place && @place.user_id == current_user.id
                 @place.destroy
+                redirect to "/places"
+            else
+                flash[:message] = "You do not have rights to delete this place."
                 redirect to "/places"
             end
         else
