@@ -1,9 +1,4 @@
 <h1>Welcome, <%= current_user.username %></h1>
-<p>
-    <h3>
-        Here is your travel log:
-    </h3>
-</p>
 <ul>
     <% @places.each do |place| %>
         <li><a href='/places/<%= place.id %>'><%= place.name %></a></li>
