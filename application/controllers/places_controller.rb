@@ -22,9 +22,11 @@ class PlacesController < ApplicationController
 
     post '/places' do
         if params[:name].blank?
+            flash[:message] = "Name cannot be blank."
             redirect to "/places/new"
         else
             @place = current_user.places.create(name: params[:name])
+            flash[:message] = "#{@place.name} was succesfully created."
             redirect to "/places/#{@place.id}"
         end
     end
@@ -44,16 +46,18 @@ class PlacesController < ApplicationController
             if @place && @place.user_id == current_user.id
               erb :'/places/edit'
             else
-              redirect '/places'
+                flash[:message] = "You do not have rights to edit this place."
+                redirect '/places'
             end
         else
-          redirect to '/login'
+            redirect to '/login'
         end
     end
 
     patch '/places/:id' do
 
         if params[:name].blank?
+            flash[:message] = "Value cannot be blank."
             redirect to "/places/#{params[:id]}/edit"
         else
             @place = Place.find_by_id(params[:id])

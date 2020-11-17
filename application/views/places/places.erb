@@ -3,9 +3,12 @@
 <% end %>
 
 <h1>Welcome, <%= current_user.username %></h1>
+<button onclick='window.location.href="/logout"'>Logout</button>
 <h3>Here are all the places that have been travelled</h3>
 <ul>
     <% @places.each do |place| %>
         <li><a href='/places/<%= place.id %>'><%= place.name %></a></li>
     <% end %>
 </ul>
+
+<button onclick='window.location.href="/places/new"'>Create Place</button>

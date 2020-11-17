@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
     post '/signup' do
         if params[:username] == "" || params[:email] == "" || params[:password] == ""
-          redirect to '/signup'
+            flash[:message] = "Values cannot be blank."
+            redirect to '/signup'
         else
           @user = User.create(params)
           session[:user_id] = @user.id

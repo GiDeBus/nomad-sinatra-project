@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 
 
 #### Helper Methods
-
+# It should only make one query to the database... change this...
     helpers do
  
         def logged_in?

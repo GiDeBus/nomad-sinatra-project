@@ -1,3 +1,11 @@
+<% if flash.has?(:message) %>
+    <%= flash[:message] %>
+<% end %>
+
+<p>
+  <button onclick='window.location.href="/places"'>Go back home</button>
+</p>
+
 <p>
   <%= @place.name %>
 </p>
